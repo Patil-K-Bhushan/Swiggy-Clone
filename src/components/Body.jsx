@@ -17,18 +17,13 @@ function Body() {
   const fetchData = async () => {
     try {
       const data = await fetch(
-        "https://corsproxy.io/?" +
-        encodeURIComponent(
-          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        )
-      );
+        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2128808&lng=73.15303109999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
 
       const json = await data.json();
 
       const restaurants =
-        json?.data?.cards?.find(
-          (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        )?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle.restaurants;
 
       setListOfRestaurant(restaurants || []);
       setFilteredRestaurant(restaurants || []);

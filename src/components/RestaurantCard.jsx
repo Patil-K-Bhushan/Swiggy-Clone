@@ -1,6 +1,5 @@
 import './RestaurantCard.css'
 import { CDN_URL } from "../utils/constants";
-import fallbackImg from "../assets/no-image.png"
 
 function RestaurantCard({ resData }) {
 
@@ -10,7 +9,7 @@ function RestaurantCard({ resData }) {
         avgRating,
         costForTwo,
         sla,
-        imageId
+        cloudinaryImageId
     } = resData?.info;
 
     return (
@@ -18,7 +17,7 @@ function RestaurantCard({ resData }) {
 
             <img
   className="res-logo"
-  src={imageId ? CDN_URL + imageId : fallbackImg}
+  src={CDN_URL+cloudinaryImageId}
   alt="restaurant"
 />
             <h3>{name}</h3>
